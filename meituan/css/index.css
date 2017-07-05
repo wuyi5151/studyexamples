@@ -29,8 +29,11 @@
     border-radius: 0.06rem;
     outline: none;
     border: 0;
-    background: #05a494;
-    text-indent: 0.1rem;
+    background: #05a494 url(../img/magnifier.png) no-repeat 0.1rem center;
+    -webkit-background-size: 0.32rem 0.32rem;
+    -moz-background-size: 0.32rem 0.32rem;
+    background-size: 0.32rem 0.32rem;
+    text-indent: 0.5rem;
     color: #fff;
 }
 #search input::-webkit-input-placeholder{ /*伪元素选择器*/
@@ -39,9 +42,9 @@
 }
 #banner{
     height: 1rem;
-    background: url(../img/banner.jpg) no-repeat center;
-    -webkit-background-size: 12.8rem 1rem;
-    -moz-background-size: 12.8rem 1rem;
+    background: #f0efed url(../img/banner.jpg) no-repeat center;
+    -webkit-background-size: 12.8rem 2rem;
+    -moz-background-size: 12.8rem 2rem;
     background-size: 6.4rem 1rem;
 
 }
