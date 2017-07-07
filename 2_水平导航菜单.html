@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>水平导航菜单</title>
+	<style>
+		/* css重置   css reset */
+		*{
+			margin: 0;
+			padding: 0;		
+		}
+		li{
+			list-style: none;/* 去掉li前面的小点 */
+			width: 120px;/* 宽度 */
+			height: 30px;/* 高度 */
+			background: red;/* 背景颜色 */
+			float: left;/* 浮动，让li水平分布 */
+			margin-right: 5px;/* 右外边距 */
+			color: white;/* 字体颜色：白色 */
+			text-align: center;/* 文字水平居中 */
+			line-height: 30px;/* 文字垂直居中 */
+			cursor: pointer;/* 鼠标变成手状 */
+		}
+		/* 伪类选择器, 鼠标放在元素上的时候触发的样式 */
+		li:hover{
+			background: orange;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>Link One</li>
+		<li>Link Two</li>
+		<li>Link Three</li>
+		<li>Link Four</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="div1">div</div>
+	<ul id="nav">
+		<li>001</li>
+		<li>002</li>
+		<li>003</li>
+		<li>004</li>
+	</ul>
+
+	<script>
+		var oDiv = document.getElementById("div1");
+		/*oDiv.onclick = function(){
+			console.log(this);
+		};
+
+		var oNav = document.getElementById("nav");
+		oNav.onclick = function(e){
+			var target = e.target || window.event.srcElement;
+			// e.clientX  e.clientY
+			// e.pageX e.pageY
+			// e.keycode || e.which
+
+			console.log(this);
+			console.log(target);
+		};
+
+		var a = 5;
+		// console.log(window.a);
+		function fn(){
+			console.log(this);
+		}
+		// fn();
+
+
+		setInterval(function(){
+			console.log(this);
+		}, 1000);
+
+
+		//事件三要素：事件源target   事件处理函数function  事件对象e
+
+
+		(function(){
+			var a = 5;
+
+
+		})();//函数立即调用*/
+
+		//call 
+		//apply
+		//bind
+		
+		function fn(arg1, arg2){
+			console.log(this);
+			console.log(arg1);
+			console.log(arg2);
+		}
+		var obj = {
+			name: "zhangsan",
+			age: 20
+		};
+		// fn(1, 2);
+		// fn.call(obj, 1, 2);
+		// fn.apply(obj, [1, 2]);
+		// fn.bind(obj, 1, 2)();
+		
+
+		oDiv.addEventListener("click", function(){
+			console.log(this);//obj
+		}.bind(obj), false);
+
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+

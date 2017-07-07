@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="div1">divdiv</div>
+
+	<ul id="tab">
+		<li id="li1">01</li>
+		<li>02</li>
+		<li>03</li>
+		<li>04</li>
+		<li>05</li>
+		<li>06</li>
+		<li>07</li>
+		<li>08</li>
+		<li>09</li>
+		<li>10</li>
+	</ul>
+
+	<script>
+	// var => variable
+	// int char string float
+	
+		// fn();
+		/*function fn(){
+			alert(123);
+		}
+
+		var fn2 = function(){
+			alert(234);
+		};
+		fn2();*/
+
+
+		/*var oDiv = document.getElementById("div1");
+		oDiv.onclick = function(){
+				alert("hello");
+		};*/
+
+		//事件委托、事件代理
+		//后生成元素的事件绑定问题
+		var oTab = document.getElementById("tab");
+		var oLi1 = document.getElementById("li1");
+		/*oTab.addEventListener("click", function(e){
+			// var target = e.target || window.event.srcElement;
+			// console.log(target.innerHTML);
+			console.log("ul冒泡");
+		}, false);
+
+		oTab.addEventListener("click", function(e){
+			// var target = e.target || window.event.srcElement;
+			// console.log(target.innerHTML);
+			console.log("ul捕获");
+		}, true);
+
+		oLi1.addEventListener("click", function(){
+			console.log("li1冒泡");
+		}, false);
+		oLi1.addEventListener("click", function(){
+			console.log("li1捕获");
+		}, true);//默认值是false，表示事件冒泡.  TRUE表示事件捕获
+		//先捕获后冒泡*/
+		
+		
+		/*oLi1.attachEvent("onclick", function(){
+			alert(1);
+			console.log(this);//window
+		});*/
+		/*oLi1.attachEvent("onclick", function(){
+			alert(2);
+		});*/
+		
+
+		/*oLi1.addEventListener("click", function(){
+			alert(1);
+			console.log(this);
+		}, false);*/
+		/*oLi1.addEventListener("click", function(){
+			alert(2);
+		}, false);*/
+
+
+		addEvent(oLi1, "click", function(){
+			console.log(this);
+			alert(123);
+		});
+		function addEvent(elem, type, handler){
+			if(elem.addEventListener){
+				elem.addEventListener(type, handler);
+			}else if(elem.attachEvent){
+				elem.attachEvent("on" + type, handler);
+			}else{
+				elem["on" + type] = handler;
+			}
+		}
+
+		// elem.onclick = funciton(){};
+		var obj1 = new Object();
+		obj1.name = "zhangsan";
+		obj1.age = 20;
+		obj1.eat = function(){
+			console.log(this);
+			// alert("eating");
+		};
+		obj1.eat();
+
+
+		/*var obj2 = {
+			name : "lisi",
+			age : 18,
+			code : function(){
+				alert("coding");
+			}
+		};
+		// console.log(obj2.name);
+		var p = "name";
+		console.log(obj2[p]);*/
+
+		// call(obj, a, b);
+		// apply(obj, [a, b]);
+		// bind(obj, a, b);
+
+
+
+
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
