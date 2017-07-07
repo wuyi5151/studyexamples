@@ -10,6 +10,13 @@
     <!--<link rel="stylesheet" href="jquery.mobile.icons.min.css" />-->
     <script src="jquery-1.12.4.min.js"></script>
     <!-- <script src="index.js"></script> 注意顺序 -->
+    <script>
+        $(document).on("pageinit","#page-one",function(){
+            console.log("page-one 加载成功!");
+            // 此处是 jQuery 事件...
+
+        });
+    </script>
     <script src="jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
@@ -45,13 +52,22 @@
                 <h1>点击我 - 我可以折叠！</h1>
                 <p>现在我默认是展开的。</p>
             </div>
+            <div class="ui-grid-c">
+                <div class="ui-block-a"><span>Some Text</span></div>
+                <div class="ui-block-b"><span>Some Text</span></div>
+                <div class="ui-block-c"><span>Some Text</span></div>
+                <div class="ui-block-a"><span>Some Text</span></div>
+                <div class="ui-block-b"><span>Some Text</span></div>
+                <div class="ui-block-a"><span>Some Text</span></div>
+            </div>
         </div>
-            <div data-role="footer" data-position="fixed">
+        <div data-role="footer" data-position="fixed">
                 <h1>this is footer</h1>
                 <a href="#" data-role="button">微博</a>
                 <a href="#" data-role="button">腾讯</a>
                 <a href="#" data-role="button">QQ空间</a>
-            </div>
+        </div>
+    </div>
 
         <div data-role="page" id="page-two">
             <div data-role="header">
