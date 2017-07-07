@@ -6,7 +6,7 @@ $(function(){//文档就绪函数
     var $navSpan=$("#nav span");
     //click tap
     //click事件在移动端比tap事件慢300毫秒
-    $("#nav span").on("tap", function(){
+    $navSpan.on("tap", function(){
         //this是原生对象
         //$(this)是jQuery对象,$(this)[0]可转换成原生对象,jQuery方法返回的还是一个jQuery对象
         //两者可以相互转换
