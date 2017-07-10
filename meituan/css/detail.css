@@ -17,6 +17,7 @@
     width: 0.45rem;
     height: 0.45rem;
     margin-top: 0.3rem;
+    margin-left: 0.15rem;
 }
 #collect{
     color: #fff;
@@ -53,4 +54,98 @@
     font-size: 0.38rem;
     margin-bottom: 0.15rem;
 }
+#price{
+    padding: 0.28rem 0.2rem;
+    border-bottom: 1px solid #ccc;
+}
+#price .buy{
+    width: 2.52rem;
+    height: 0.8rem;
+    background-color: #ff9900;
+    color: #fff;
+    border: 0;
+    outline: none;
+    border-radius: 0.1rem;
+    font-size: 0.4rem;
+    float: right;
+    /*margin-left: 1.2rem;*/
+}
+#price .preferential-price{
+    color: #06c1ae;
+    font-weight: bolder;
+}
+#price .preferential-price span{
+    font-size: 0.66rem;
+}
+#explain{
+    margin-bottom: 0.3rem;
+    padding: 0.28rem 0.2rem;
+}
+#explain span{
+    float: left;
+}
+#explain .refund{
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 0.4rem 0.4rem;
+    padding-left: 0.5rem;
+}
+#explain span:nth-child(1){
+    background-image: url(../img/refund.png);
+    color: #6dbe03;
+}
+#explain span:nth-child(2){
+    background-image: url(../img/right.png);
+    color: #6dbe03;
+    margin-left: 0.8rem;
+}
+#explain span:last-child{
+    background-image: url(../img/sold.png);
+    padding-left: 0.5rem;
+    margin-top: 0.1rem;
+}
 
+#star{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.1rem;
+}
+#star img{
+    width: 0.32rem;
+    height: 0.32rem;
+}
+#evaluate-type{
+    margin: 0.3rem 0;
+    padding: 0.28rem 0.2rem;
+}
+#star .score{
+    color: #ff9712;
+}
+#star .evaluate-num{
+    float: right;
+    margin-right: 0.2rem;
+}
+#type{
+    height: 2.7rem;
+}
+#type span{
+    color: #999;
+    border: 1px solid #999;
+    padding: 0.1rem;
+    float: left;
+    margin-top: 0.2rem;
+    margin-right: 0.2rem;
+    border-radius: 0.1rem;
+}
+#type span.hot{
+    color: #ff9712;
+    border: 1px solid #ff9712;
+}
+#inform h3{
+    padding-bottom: 0.2rem;
+}
+#inform p{
+    color: #eb8706;
+    border-top: 1px solid #ccc;
+    padding-top: 0.3rem;
+}
+/*行级元素只能加margin-right和margin-left，不能加top和bottom*/
