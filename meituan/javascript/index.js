@@ -1,7 +1,8 @@
 /**
  * Created by Administrator on 2017/7/6.
  */
-$(function(){//文档就绪函数
+//$(function(){//文档就绪函数
+$(document).on("pageinit",function(event){
     var $guideUl=$("#guide ul");
     var $navSpan=$("#nav span");
     //click tap
@@ -53,6 +54,10 @@ $(function(){//文档就绪函数
              }
         }, 100);
      };*/
+
+    $("#menu li").on("tap", function(){
+        location.href="detail.html";
+    });
 
     function swipeGuide(index){
         $navSpan.eq(index).addClass("active").siblings().removeClass("active");
