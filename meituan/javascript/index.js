@@ -1,37 +1,38 @@
 /**
  * Created by Administrator on 2017/7/6.
  */
-//$(function(){//ÎÄµµ¾ÍĞ÷º¯Êı
+//$(function(){//æ–‡æ¡£å°±ç»ªå‡½æ•°
 $(document).on("pageinit",function(event){
     var $guideUl=$("#guide ul");
     var $navSpan=$("#nav span");
     //click tap
-    //clickÊÂ¼şÔÚÒÆ¶¯¶Ë±ÈtapÊÂ¼şÂı300ºÁÃë
+    //clickäº‹ä»¶åœ¨ç§»åŠ¨ç«¯æ¯”tapäº‹ä»¶æ…¢300æ¯«ç§’
     $navSpan.on("tap", function(){
-        //thisÊÇÔ­Éú¶ÔÏó
-        //$(this)ÊÇjQuery¶ÔÏó,$(this)[0]¿É×ª»»³ÉÔ­Éú¶ÔÏó,jQuery·½·¨·µ»ØµÄ»¹ÊÇÒ»¸öjQuery¶ÔÏó
-        //Á½Õß¿ÉÒÔÏà»¥×ª»»
-       /* $(this).addClass("active").siblings().removeClass("active");
-        $guideUl.css({
-           left: -$(this).index() * $guideUl.width()/2
-        });*/
+        //thisæ˜¯åŸç”Ÿå¯¹è±¡
+        //$(this)æ˜¯jQueryå¯¹è±¡,$(this)[0]å¯è½¬æ¢æˆåŸç”Ÿå¯¹è±¡,jQueryæ–¹æ³•è¿”å›çš„è¿˜æ˜¯ä¸€ä¸ªjQueryå¯¹è±¡
+        //ä¸¤è€…å¯ä»¥ç›¸äº’è½¬æ¢
+        /* $(this).addClass("active").siblings().removeClass("active");
+         $guideUl.css({
+         left: -$(this).index() * $guideUl.width()/2
+         });*/
         swipeGuide($(this).index());
     });
     $guideUl.on("swipeleft",function(){
-       /* $navSpan.eq(1).addClass("active").siblings().removeClass("active");
-        $guideUl.css({
-            left:-$guideUl.width()/2
-        });*/
+        /* $navSpan.eq(1).addClass("active").siblings().removeClass("active");
+         $guideUl.css({
+         left:-$guideUl.width()/2
+         });*/
         swipeGuide(1);
     }).on("swiperight",function(){
-       /* $navSpan.eq(0).addClass("active").siblings().removeClass("active");
-        $guideUl.css({
-            left:0
-        });*/
+        /* $navSpan.eq(0).addClass("active").siblings().removeClass("active");
+         $guideUl.css({
+         left:0
+         });*/
         swipeGuide(0)
     });
 
-    $("#go-top").on("tap",function(){
+    $("#go-top").on("tap",function(event){
+        event.stopPropagation();
         if($(window).scrollTop()<=1){
             return false;
         }
@@ -46,13 +47,13 @@ $(document).on("pageinit",function(event){
         });
     });
     /*oTop.onclick = function(){
-        var timer = setInterval(function(){
-            var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-            window.scrollTo(0, scrollTop-=50);
-            if(scrollTop <= 0){
-            clearInterval(timer);
-             }
-        }, 100);
+     var timer = setInterval(function(){
+     var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+     window.scrollTo(0, scrollTop-=50);
+     if(scrollTop <= 0){
+     clearInterval(timer);
+     }
+     }, 100);
      };*/
 
     $("#menu li").on("tap", function(){
@@ -67,12 +68,12 @@ $(document).on("pageinit",function(event){
     }
 });
 /*$(document).ready(function(){
- ÎÄµµ¾ÍĞ÷º¯Êı
-});
+ æ–‡æ¡£å°±ç»ªå‡½æ•°
+ });
 
-width() »ñÈ¡ÄÚÈİ¿í¶È
-innerWidth() ÄÚÈİ+padding
-outerWidth() ÄÚÈİ+padding+border
-outerWidth(true) ÄÚÈİ+padding+border+margin
+ width() è·å–å†…å®¹å®½åº¦
+ innerWidth() å†…å®¹+padding
+ outerWidth() å†…å®¹+padding+border
+ outerWidth(true) å†…å®¹+padding+border+margin
 
-*/
+ */
