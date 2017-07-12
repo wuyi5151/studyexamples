@@ -14,22 +14,24 @@
     <script src="javascript/jquery-1.12.4.js"></script>
     <script src="javascript/index.js"></script>
     <script src="javascript/login.js"></script>
+    <script src="javascript/register.js"></script>
     <script src="javascript/jquery.mobile-1.4.5.js"></script>
-    <title>登录</title>
+    <title>注册</title>
 </head>
 <body>
     <div id="header">
-        登录
+        注册
     </div>
-    <form method="post" action="user/login" data-ajax="false" id="login-form">
+    <form method="post" action="user/register" data-ajax="false" id="login-form">
         <div class="ui-field-contain">
             <label for="username">用户名:</label>
             <input type="text" name="username" id="username" placeholder="请输入用户名">
+            <span id="is-use"></span>
             <label for="password">密码:</label>
             <input type="password" name="password" id="password" placeholder="请输入密码">
             <div id="btn">
-                <button class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-user">登录</button>
-                <button class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-tag" type="button" id="register_page">新用户注册</button>
+                <button class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-tag">注册</button>
+                <button class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-user" id="login_page" type="button">老用户登录</button>
             </div>
         </div>
     </form>

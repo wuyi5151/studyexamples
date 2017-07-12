@@ -35,8 +35,9 @@ $(document).on("pageinit",function(event){
     });
 
     $("#login").on("tap", function(){
-        location.href = "welcome/login_page";
+        location.href = "user/login_page";
     });
+
     $("#go-top").on("tap",function(event){
         event.stopPropagation();
         if($(window).scrollTop()<=1){
