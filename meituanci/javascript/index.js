@@ -38,6 +38,14 @@ $(document).on("pageinit",function(event){
         location.href = "user/login_page";
     });
 
+    $("#user-detail").on("tap",function () {
+        location.href="user/user_detail";
+    });
+
+    $("#logout").on("tap",function () {
+        location.href="user/logout";
+    });
+
     $("#go-top").on("tap",function(event){
         event.stopPropagation();
         if($(window).scrollTop()<=1){
@@ -62,10 +70,6 @@ $(document).on("pageinit",function(event){
      }
      }, 100);
      };*/
-
-    $("#menu li").on("tap", function(){
-        location.href="detail.php";
-    });
 
     function swipeGuide(index){
         $navSpan.eq(index).addClass("active").siblings().removeClass("active");

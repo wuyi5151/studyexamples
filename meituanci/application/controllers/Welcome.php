@@ -25,4 +25,7 @@ class Welcome extends CI_Controller {
 	public function detail(){
 	    $this -> load -> view("detail");
     }
+    public function  success(){
+	    $this->load->view('success');
+    }
 }

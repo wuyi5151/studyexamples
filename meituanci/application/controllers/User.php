@@ -13,6 +13,7 @@ class User extends CI_Controller
     {
         parent::__construct();
         $this->load->model("user_model");
+        $this->load->model("order_model");
     }
 
     public function login_page(){
@@ -26,7 +27,10 @@ class User extends CI_Controller
         /*$this->load->model("user_model");*/
         $row=$this->user_model->get_by_username_password($username,$password);
         if($row){
-            echo "登录成功";
+            $this->session->set_userdata(array(
+                "userinfo"=>$row
+            ));
+            redirect("welcome/index");
         }else{
             echo "登录失败";
         }
@@ -56,5 +60,21 @@ class User extends CI_Controller
         if($num>0){//插入成功
             redirect("user/login_page");
         }
+    }
+
+    public function logout(){
+        $this->session->unset_userdata("userinfo");
+       /* $this->session->sess_destroy();*/
+       redirect("welcome");
+    }
+
+    public function user_detail(){
+        $userinfo=$this->session->userdata("userinfo");
+        //die();//之后的代码不执行
+        $user_id=$userinfo->user_id;
+        $order_list=$this->order_model->get_order_by_user_id($user_id);
+        $this->load->view('user_detail',array(
+            "order_list"=>$order_list
+        ));
     }
 }
