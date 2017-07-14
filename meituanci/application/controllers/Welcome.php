@@ -43,8 +43,14 @@ class Welcome extends CI_Controller {
 
 		$this->load->view('index',array('result'=>$results));
 	}
-	public function detail(){
-	    $this -> load -> view("detail");
+	public function detail($product_id){
+//	    $this -> load -> view("detail")
+
+//        var_dump($product_id);
+//        die();
+
+        $row=$this->product_model->get_product_by_id($product_id);
+        $this->load->view('detail',array('row'=>$row));
     }
     public function  success(){
 	    $this->load->view('success');
