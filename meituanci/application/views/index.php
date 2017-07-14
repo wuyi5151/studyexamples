@@ -166,7 +166,7 @@
                                     <div>
                                         <span class="price"><?php echo $product->discount_price?></span>
                                         <span>门市价：<?php echo $product->price?></span>
-                                        <span class="sold">已售<?php echo $product->num?></span>
+                                        <span class="sold">已售<?php echo $product->num==null?0:$product->num;?></span>
                                     </div>
                                 </div>
                             </li>
