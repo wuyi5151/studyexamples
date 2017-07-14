@@ -18,9 +18,30 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
+	public function __construct()
+    {
+        parent::__construct();
+        $this->load->model("product_model");
+        $this->load->model("order_model");
+    }
+
+    public function index()
 	{
-		$this->load->view('index');
+	    $results=$this->product_model->get_product();
+
+	    foreach ($results as $product){
+            //在order表通过product_id查询记录条数
+            $num=$this->order_model->get_count_by_product_id($product->product_id);
+            /*if($num->num==null){
+                $product->num=0;
+            }else{
+                $product->num=$num->num;
+            }*/
+            $product->num = $num->num == null?0:$num->num;
+        }
+        //var_dump($results[0]->product_id);
+
+		$this->load->view('index',array('result'=>$results));
 	}
 	public function detail(){
 	    $this -> load -> view("detail");
