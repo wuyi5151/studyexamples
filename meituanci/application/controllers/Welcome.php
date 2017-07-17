@@ -50,6 +50,25 @@ class Welcome extends CI_Controller {
 //        die();
 
         $row=$this->product_model->get_product_by_id($product_id);
+
+        $userinfo=$this->session->userdata('userinfo');
+        if(empty($userinfo)){
+            //没登录
+            $row->collect='收藏';
+        }else{
+            //已登录
+            $user_id=$userinfo->user_id;
+            $collect=$this->product_model->get_collect($user_id,$product_id);
+            //var_dump($user_id,$product_id);//此函数显示关于一个或多个表达式的结构信息，包括表达式的类型与值
+            if($collect==null){
+                //为收藏 显示收藏
+                $row->collect='收藏';
+            }else{
+                //已收藏 显示取消
+                $row->collect='取消';
+            }
+        }
+
         $this->load->view('detail',array('row'=>$row));
     }
     public function  success(){

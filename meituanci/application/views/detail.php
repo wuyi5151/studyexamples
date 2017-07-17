@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/detail.css">
-
     <script src="javascript/rem.js"></script>
     <script src="javascript/jquery-1.12.4.js"></script>
     <script src="javascript/index.js"></script>
@@ -27,11 +26,12 @@
             团购详情
         </div>
         <div id="collect">
-            <span>收藏</span>
+            <input type="hidden" id="hidden-product-id" value="<?php echo $row->product_id?>">
+            <span id="collect-btn" class="<?php echo $row->collect=='取消'?'active':''?>"><?php echo $row->collect?></span>
             <span>导航</span>
         </div>
     </div>
-    <div role="main" class="ui-content" id="content">
+    <div role="main" class="ui-content">
         <div id="banner">
             <div class="product-name">
                 <p><?php echo $row->product_name?></p>
@@ -40,7 +40,7 @@
         </div>
         <div id="price">
             <span class="preferential-price"><span><?php echo $row->discount_price?></span>元</span>
-            <span>门市价：<?php echo $row->price?></span>
+            <span>门市价:<?php echo $row->price?></span>
             <button data-role="none" class="buy">立即购买</button>
         </div>
         <div id="explain">`
