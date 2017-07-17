@@ -31,7 +31,8 @@ $(document).on("pageinit",function(event){
         swipeGuide(0)
     });
     $("#menu li").on("tap", function(){
-        location.href = "welcome/detail";
+        var productId=$(this).children('.product-id').val();
+        location.href = "welcome/detail/"+productId;
     });
 
     $("#login").on("tap", function(){

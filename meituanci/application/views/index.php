@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css"/>
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/index.css">
-
     <script src="javascript/rem.js"></script>
     <script src="javascript/jquery-1.12.4.js"></script>
     <script src="javascript/index.js"></script>
@@ -159,6 +158,7 @@
                     <ul id="menu">
                         <?php foreach ($result as $product){?>
                             <li>
+                                <input type="hidden" class='product-id' value="<?php echo $product->product_id?>">
                                 <img src="<?php echo $product->img?>" alt="" class="brand"/>
                                 <div class="detail">
                                     <p class="detail-name"><?php echo $product->product_name?></p>

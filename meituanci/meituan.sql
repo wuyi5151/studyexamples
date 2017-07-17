@@ -10,10 +10,28 @@ Target Server Type    : MYSQL
 Target Server Version : 50626
 File Encoding         : 65001
 
-Date: 2017-07-14 15:08:00
+Date: 2017-07-17 11:15:26
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for `t_business`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_business`;
+CREATE TABLE `t_business` (
+  `business_id` int(11) NOT NULL AUTO_INCREMENT,
+  `business_name` varchar(255) COLLATE utf8_bin NOT NULL,
+  `business_address` varchar(255) COLLATE utf8_bin NOT NULL,
+  `business_tel` varchar(255) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`business_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of t_business
+-- ----------------------------
+INSERT INTO `t_business` VALUES ('1', '鲜芋仙', '道外区东直路118号百盛购物中心太平桥店1层', '0451-88888888');
+INSERT INTO `t_business` VALUES ('2', '麦当劳', '东北林业大学', '010-666');
 
 -- ----------------------------
 -- Table structure for `t_order`
@@ -50,15 +68,18 @@ CREATE TABLE `t_product` (
   `description` varchar(255) COLLATE utf8_bin NOT NULL,
   `discount_price` varchar(255) COLLATE utf8_bin NOT NULL,
   `img` varchar(255) COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`product_id`)
+  `business_id` int(11) NOT NULL,
+  PRIMARY KEY (`product_id`),
+  KEY `business_id` (`business_id`),
+  CONSTRAINT `business_id` FOREIGN KEY (`business_id`) REFERENCES `t_business` (`business_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 -- Records of t_product
 -- ----------------------------
-INSERT INTO `t_product` VALUES ('1', '鲜芋仙', '8', '[11店通用]10元代金券1份', '6', 'img/xianyuxian.jpg');
-INSERT INTO `t_product` VALUES ('2', '肯德基', '15', '[12店通用]10元代金券1份', '10', 'img/xianyuxian.jpg');
-INSERT INTO `t_product` VALUES ('3', '麦当劳', '16', '[11店通用]10元代金券1份', '9', 'img/xianyuxian.jpg');
+INSERT INTO `t_product` VALUES ('1', '鲜芋仙', '8', '[11店通用]10元代金券1份', '6', 'img/xianyuxian.jpg', '1');
+INSERT INTO `t_product` VALUES ('2', '肯德基', '15', '[12店通用]10元代金券1份', '10', 'img/xianyuxian.jpg', '2');
+INSERT INTO `t_product` VALUES ('3', '麦当劳', '16', '[11店通用]10元代金券1份', '9', 'img/xianyuxian.jpg', '2');
 
 -- ----------------------------
 -- Table structure for `t_user`
