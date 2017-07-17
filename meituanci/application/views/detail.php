@@ -349,7 +349,7 @@
         </div>
         <div id="go-top"></div>
     </div>
-    <div data-role="footer">
+    <div data-role="footer" id="footer">
         <img src="img/meituan.jpg" alt="" class="logo">
         <div>
             <p>9.9元看电影</p>
