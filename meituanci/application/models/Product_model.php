@@ -27,17 +27,34 @@ class Product_model extends CI_Model
         return $this->db->get()->row();
     }
     public function add_collect($user_id,$product_id){
-        $data=array(
-            "user_id"=>$user_id,
-            "product_id"=>$product_id
-        );
-        $this->db->insert('t_collect',$data);
-        return $this->db->affected_rows();
+        $sql = "select * from t_collect where user_id=$user_id and product_id =$product_id";
+        if($this->db->query($sql)->row()==null){ //避免脏数据
+            $data=array(
+                "user_id"=>$user_id,
+                "product_id"=>$product_id
+            );
+            $this->db->insert('t_collect',$data);
+            return $this->db->affected_rows();
+        }else{
+            $this->db->set('is_delete',0);
+            $this->db->where('user_id',$user_id);
+            $this->db->where('product_id',$product_id);
+            $this->db->update('t_collect');
+            return $this->db->affected_rows();
+        }
     }
     public function get_collect($user_id,$product_id){
         /*$this->db->get_where('t_collect',array('user_id'=>$user_id,'product_id'=>$product_id,'is_delete'=>0));
         return $this->db->get()->row();*/
         $sql = "select * from t_collect where user_id=$user_id and product_id =$product_id and is_delete = 0";
         return $this->db->query($sql)->row();
+    }
+
+    public function cancel_collect($user_id,$product_id){
+        $this->db->set('is_delete',1);
+        $this->db->where('user_id',$user_id);
+        $this->db->where('product_id',$product_id);
+        $this->db->update('t_collect');
+        return $this->db->affected_rows();
     }
 }

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50626
 File Encoding         : 65001
 
-Date: 2017-07-17 15:31:46
+Date: 2017-07-17 16:45:44
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -47,13 +47,14 @@ CREATE TABLE `t_collect` (
   KEY `c_product_id` (`product_id`),
   CONSTRAINT `c_product_id` FOREIGN KEY (`product_id`) REFERENCES `t_product` (`product_id`),
   CONSTRAINT `c_user_id` FOREIGN KEY (`user_id`) REFERENCES `t_user` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 -- Records of t_collect
 -- ----------------------------
 INSERT INTO `t_collect` VALUES ('1', '1', '1', '0');
 INSERT INTO `t_collect` VALUES ('2', '1', '2', '0');
+INSERT INTO `t_collect` VALUES ('3', '1', '3', '1');
 
 -- ----------------------------
 -- Table structure for `t_order`
@@ -99,7 +100,7 @@ CREATE TABLE `t_product` (
 -- ----------------------------
 -- Records of t_product
 -- ----------------------------
-INSERT INTO `t_product` VALUES ('1', '鲜芋仙', '8', '[11店通用]10元代金券1份', '6', 'img/xianyuxian.jpg', '1');
+INSERT INTO `t_product` VALUES ('1', '鲜芋仙', '8', '[11店通用]10元代金券1份', '7.5', 'img/xianyuxian.jpg', '1');
 INSERT INTO `t_product` VALUES ('2', '肯德基', '15', '[12店通用]10元代金券1份', '10', 'img/xianyuxian.jpg', '2');
 INSERT INTO `t_product` VALUES ('3', '麦当劳', '16', '[11店通用]10元代金券1份', '9', 'img/xianyuxian.jpg', '2');
 
