@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50626
 File Encoding         : 65001
 
-Date: 2017-07-17 16:45:44
+Date: 2017-07-18 15:36:21
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -71,7 +71,7 @@ CREATE TABLE `t_order` (
   KEY `product_id` (`product_id`),
   CONSTRAINT `product_id` FOREIGN KEY (`product_id`) REFERENCES `t_product` (`product_id`),
   CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `t_user` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 -- Records of t_order
@@ -79,6 +79,8 @@ CREATE TABLE `t_order` (
 INSERT INTO `t_order` VALUES ('1', '1', '1', '8', '1');
 INSERT INTO `t_order` VALUES ('2', '1', '2', '30', '2');
 INSERT INTO `t_order` VALUES ('3', '1', '1', '10', '2');
+INSERT INTO `t_order` VALUES ('4', '1', '1', '8', '3');
+INSERT INTO `t_order` VALUES ('5', '1', '1', '8', '1');
 
 -- ----------------------------
 -- Table structure for `t_product`
