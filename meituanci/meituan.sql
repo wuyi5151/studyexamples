@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50626
 File Encoding         : 65001
 
-Date: 2017-07-18 15:36:21
+Date: 2017-07-18 17:02:05
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -55,6 +55,52 @@ CREATE TABLE `t_collect` (
 INSERT INTO `t_collect` VALUES ('1', '1', '1', '0');
 INSERT INTO `t_collect` VALUES ('2', '1', '2', '0');
 INSERT INTO `t_collect` VALUES ('3', '1', '3', '1');
+
+-- ----------------------------
+-- Table structure for `t_comment`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_comment`;
+CREATE TABLE `t_comment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `content` varchar(255) COLLATE utf8_bin NOT NULL,
+  `time` datetime NOT NULL,
+  `score` int(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id_1` (`user_id`),
+  KEY `product_id_1` (`product_id`),
+  CONSTRAINT `product_id_1` FOREIGN KEY (`product_id`) REFERENCES `t_product` (`product_id`),
+  CONSTRAINT `user_id_1` FOREIGN KEY (`user_id`) REFERENCES `t_user` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of t_comment
+-- ----------------------------
+INSERT INTO `t_comment` VALUES ('1', '1', '1', '好111111天吃太美好了 啊啊啊啊啊 上瘾上瘾 甜甜甜 甜品真是太好吃 冬天吃热的 夏天吃凉的', '2017-07-13 16:50:19', '4');
+INSERT INTO `t_comment` VALUES ('2', '2', '1', '好22222夏天吃太美好了 啊啊啊啊啊 上瘾上瘾 甜甜甜 甜品真是太好吃 冬天吃热的 夏天吃凉的', '2017-07-18 16:52:14', '5');
+INSERT INTO `t_comment` VALUES ('3', '1', '2', '不好吃不好吃 夏天吃太美好了 啊啊啊啊啊 上瘾上瘾 甜甜甜 甜品真是太好吃 冬天吃热的 夏天吃凉的', '2017-07-18 16:52:46', '1');
+
+-- ----------------------------
+-- Table structure for `t_comment_img`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_comment_img`;
+CREATE TABLE `t_comment_img` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `path` varchar(255) COLLATE utf8_bin NOT NULL,
+  `comment_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `comment_id` (`comment_id`),
+  CONSTRAINT `comment_id` FOREIGN KEY (`comment_id`) REFERENCES `t_comment` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of t_comment_img
+-- ----------------------------
+INSERT INTO `t_comment_img` VALUES ('1', 'img/item1.jpg', '1');
+INSERT INTO `t_comment_img` VALUES ('2', 'img/item2.jpg', '1');
+INSERT INTO `t_comment_img` VALUES ('3', 'img/item3.jpg', '1');
+INSERT INTO `t_comment_img` VALUES ('4', 'img/item1.jpg', '2');
 
 -- ----------------------------
 -- Table structure for `t_order`
@@ -115,9 +161,10 @@ CREATE TABLE `t_user` (
   `username` varchar(255) COLLATE utf8_bin NOT NULL,
   `password` varchar(255) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 -- Records of t_user
 -- ----------------------------
 INSERT INTO `t_user` VALUES ('1', 'wuyi', '5151');
+INSERT INTO `t_user` VALUES ('2', 'wy', '5151');

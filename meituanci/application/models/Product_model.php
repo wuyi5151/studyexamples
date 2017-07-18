@@ -57,4 +57,13 @@ class Product_model extends CI_Model
         $this->db->update('t_collect');
         return $this->db->affected_rows();
     }
+
+    public function get_comment($product_id){
+        $sql="select t_comment.*,t_user.username from t_comment,t_user where t_user.user_id=t_comment.user_id and product_id=$product_id";
+        return $this->db->query($sql)->result();
+    }
+    public function get_img($comment_id){
+        $sql="select * from t_comment_img where comment_id=$comment_id";
+        return $this->db->query($sql)->result();
+    }
 }
