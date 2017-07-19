@@ -66,4 +66,8 @@ class Product_model extends CI_Model
         $sql="select * from t_comment_img where comment_id=$comment_id";
         return $this->db->query($sql)->result();
     }
+    public function avg_score($product_id){
+        $sql="select sum(score) s_score,count(score) c_score from t_comment where product_id=$product_id";
+        return $this->db->query($sql)->result();
+    }
 }

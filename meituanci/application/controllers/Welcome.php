@@ -3,22 +3,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
-	public function __construct()
+    /**
+     * Index Page for this controller.
+     *
+     * Maps to the following URL
+     * 		http://example.com/index.php/welcome
+     *	- or -
+     * 		http://example.com/index.php/welcome/index
+     *	- or -
+     * Since this controller is set as the default controller in
+     * config/routes.php, it's displayed at http://example.com/
+     *
+     * So any other public methods not prefixed with an underscore will
+     * map to /index.php/welcome/<method_name>
+     * @see https://codeigniter.com/user_guide/general/urls.html
+     */
+    public function __construct()
     {
         parent::__construct();
         $this->load->model("product_model");
@@ -26,8 +26,8 @@ class Welcome extends CI_Controller {
     }
 
     public function index()
-	{
-	    $results=$this->product_model->get_product();
+    {
+        $results=$this->product_model->get_product();
 
 //	    foreach ($results as $product){
 //            //在order表通过product_id查询记录条数
@@ -41,9 +41,9 @@ class Welcome extends CI_Controller {
 //        }
         //var_dump($results[0]->product_id);
 
-		$this->load->view('index',array('result'=>$results));
-	}
-	public function detail($product_id){
+        $this->load->view('index',array('result'=>$results));
+    }
+    public function detail($product_id){
 //	    $this -> load -> view("detail")
 
 //        var_dump($product_id);
@@ -75,10 +75,20 @@ class Welcome extends CI_Controller {
             }
         }
 
-        $this->load->view('detail',array('row'=>$row,'results'=>$results));
+        $score=$this->product_model->avg_score($product_id);
+//        if($score!=null){
+//            $avg = $score->s_score / $score->c_score;
+//        }else{
+//            $avg=0;
+//        }
+//        echo $avg;
+//        console.log($avg);
+//        var_dump($score)
+
+        $this->load->view('detail',array('row'=>$row,'results'=>$results,'score'=>$score));
     }
     public function  success(){
-	    $this->load->view('success');
+        $this->load->view('success');
     }
 
     public function submit_order(){

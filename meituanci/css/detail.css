@@ -317,3 +317,16 @@
     height: 1rem;
     float: right;
 }
+
+.comment-score{
+    position: relative;
+    height: 18px;
+    width: 89px;
+    display: inline-block;
+    background: url("../img/starts.png") no-repeat;
+}
+.comment-score div{
+    position: absolute;
+    height: 18px;
+    background: url("../img/starts.png") 0 -18px no-repeat;
+}
